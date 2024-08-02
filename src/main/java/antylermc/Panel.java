@@ -1,6 +1,7 @@
 package antylermc;
 
 import antylermc.utils.MicrosoftThread;
+import fr.theshark34.openlauncherlib.util.ramselector.RamSelector;
 import fr.theshark34.swinger.event.SwingerEvent;
 import fr.theshark34.swinger.event.SwingerEventListener;
 import fr.theshark34.swinger.textured.STexturedButton;
@@ -14,8 +15,11 @@ import static antylermc.Frame.*;
 public class Panel extends JPanel implements SwingerEventListener {
 
     private Image background = getImage("launcherbackground.png");
+    private STexturedButton settings = new STexturedButton(getBuffuredImage("settings.png"), getBuffuredImage("settings.png"));
+
     private STexturedButton play = new STexturedButton(getBuffuredImage("button1.png"), getBuffuredImage("button2.png"));
     private STexturedButton microsoft = new STexturedButton(getBuffuredImage("microsofticon.png"),getBuffuredImage("microsofticon.png"));
+    private RamSelector ramSelector = new RamSelector(Frame.getRamFile());
 
     public Panel() throws IOException {
         this.setLayout(null);
@@ -29,6 +33,11 @@ public class Panel extends JPanel implements SwingerEventListener {
         microsoft.setLocation(850,380);
         microsoft.addEventListener(this);
         this.add(microsoft);
+
+        settings.setBounds(75,75);
+        settings.setLocation(890,1);
+        settings.addEventListener(this);
+        this.add(settings);
 
 
     }
@@ -47,6 +56,7 @@ public class Panel extends JPanel implements SwingerEventListener {
             Thread t = new Thread(new MicrosoftThread());
             t.start();
         } else if (swingerEvent.getSource()== play) {
+            ramSelector.save();
             try {
                 launcher.update();
             } catch (Exception e) {
@@ -59,6 +69,13 @@ public class Panel extends JPanel implements SwingerEventListener {
                 launcher.getReporter().catchError(e, "Impossible de démarrer le jeu");
         }
 
+        }else if (swingerEvent.getSource() == settings) {
+            ramSelector.display();
         }
+
+    }
+
+    public RamSelector getRamSelector() {
+        return ramSelector;
     }
 }

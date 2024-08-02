@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -14,6 +15,7 @@ public class Frame extends JFrame {
 
     private static Frame instance;
     private Panel panel;
+    private static File ramFile = new File(String.valueOf(launcher.getPath()),"raminfo.txt");
     public Frame() throws IOException {
         instance = this;
         this.setTitle("AntylerMC");
@@ -33,6 +35,9 @@ public class Frame extends JFrame {
 
     public static void main(String[] arg) throws IOException {
         launcher.crashfile.mkdirs();
+        if (!ramFile.exists()) {
+            ramFile.createNewFile();
+        }
 
         instance = new Frame();
     }
@@ -56,5 +61,9 @@ public class Frame extends JFrame {
 
     public Panel getPanel() {
         return this.panel;
+    }
+
+    public static File getRamFile() {
+        return ramFile;
     }
 }
