@@ -36,9 +36,11 @@ public class launcher {
         VanillaVersion vanillaVersion = new VanillaVersion.VanillaVersionBuilder().withName("1.16.5").build();
         UpdaterOptions options = new UpdaterOptions.UpdaterOptionsBuilder().build();
 
+        List<CurseFileInfo> curseFileInfos = new ArrayList<>();
+        curseFileInfos.add(new CurseFileInfo(238222, 4354617));
+        curseFileInfos.add(new CurseFileInfo(372196, 3391448));
 
-
-        AbstractForgeVersion version = new ForgeVersionBuilder(ForgeVersionBuilder.ForgeVersionType.NEW).withMods("").withForgeVersion("36.2.39").build();
+        AbstractForgeVersion version = new ForgeVersionBuilder(ForgeVersionBuilder.ForgeVersionType.NEW).withCurseMods(curseFileInfos).withForgeVersion("36.2.39").build();
 
         FlowUpdater updater = new FlowUpdater.FlowUpdaterBuilder().withVanillaVersion(vanillaVersion).withUpdaterOptions(options).withModLoaderVersion(version).build();
         updater.update(path);
