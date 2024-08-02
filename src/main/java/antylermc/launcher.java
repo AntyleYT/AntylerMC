@@ -49,7 +49,7 @@ public class launcher {
 
     public static void launch () throws Exception {
         NoFramework noFramework = new NoFramework(path , authInfos, GameFolder.FLOW_UPDATER);
-        noFramework.launch("1.16.5","6.2.39" , NoFramework.ModLoader.FORGE);
+        noFramework.launch("1.16.5","36.2.39" , NoFramework.ModLoader.FORGE);
 
     }
     public static CrashReporter getReporter() {

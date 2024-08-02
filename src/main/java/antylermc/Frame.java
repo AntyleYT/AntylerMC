@@ -5,6 +5,7 @@ import fr.theshark34.swinger.util.WindowMover;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,7 +18,7 @@ public class Frame extends JFrame {
         instance = this;
         this.setTitle("AntylerMC");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(1920, 1017);
+        this.setSize(960,509);
         this.setUndecorated(true);
         this.setLocationRelativeTo(null);
         this.setIconImage(getImage("Icon.png"));
@@ -39,6 +40,12 @@ public class Frame extends JFrame {
 
 
     public static Image getImage(String fichier) throws IOException{
+        InputStream inputStream = Frame.getInstance().getClass().getClassLoader().getResourceAsStream(fichier);
+        return ImageIO.read(inputStream);
+
+    }
+
+    public static BufferedImage getBuffuredImage(String fichier) throws IOException{
         InputStream inputStream = Frame.getInstance().getClass().getClassLoader().getResourceAsStream(fichier);
         return ImageIO.read(inputStream);
 
