@@ -27,17 +27,24 @@ public class launcher {
     private static AuthInfos authInfos;
 
     public static void auth() throws MicrosoftAuthenticationException {
-        MicrosoftAuthenticator authenticator = new MicrosoftAuthenticator();
-        MicrosoftAuthResult result = authenticator.loginWithWebview();
-        authInfos = new AuthInfos(result.getProfile().getName(), result.getAccessToken(), result.getProfile().getId());
-
+        MicrosoftAuthenticator microsoftAuthenticator = new MicrosoftAuthenticator();
+        final String refresh_token = Frame.getSaver().get("refresh_token");
+        MicrosoftAuthResult result = null;
+        if (refresh_token != null && !refresh_token.isEmpty()) {
+            result = microsoftAuthenticator.loginWithRefreshToken(refresh_token);
+            authInfos = new AuthInfos(result.getProfile().getName(), result.getAccessToken(), result.getProfile().getId());
+        } else {
+            result = microsoftAuthenticator.loginWithWebview();
+            Frame.getSaver().set("refresh_token", result.getRefreshToken());
+            authInfos = new AuthInfos(result.getProfile().getName(), result.getAccessToken(), result.getProfile().getId());
+        }
     }
     public static void update () throws Exception {
         VanillaVersion vanillaVersion = new VanillaVersion.VanillaVersionBuilder().withName("1.16.5").build();
         UpdaterOptions options = new UpdaterOptions.UpdaterOptionsBuilder().build();
 
         List<CurseFileInfo> curseFileInfos = new ArrayList<>();
-        curseFileInfos.add(new CurseFileInfo(238222, 5534622));
+        curseFileInfos.add(new CurseFileInfo(821790, 4594802));
         curseFileInfos.add(new CurseFileInfo(372196, 3391448));
 
         AbstractForgeVersion version = new ForgeVersionBuilder(ForgeVersionBuilder.ForgeVersionType.NEW).withCurseMods(curseFileInfos).withForgeVersion("36.2.39").build();

@@ -1,5 +1,6 @@
 package antylermc;
 
+import fr.theshark34.openlauncherlib.util.Saver;
 import fr.theshark34.swinger.util.WindowMover;
 
 import javax.imageio.ImageIO;
@@ -15,7 +16,10 @@ public class Frame extends JFrame {
 
     private static Frame instance;
     private Panel panel;
-    private static File ramFile = new File(String.valueOf(launcher.getPath()),"raminfo.txt");
+    private static File ramFile = new File(String.valueOf(launcher.getPath()),"ram.info");
+    private static File saverFile = new File(String.valueOf(launcher.getPath()),"user.stock");
+    private static Saver saver = new Saver(saverFile);
+
     public Frame() throws IOException {
         instance = this;
         this.setTitle("AntylerMC");
@@ -37,6 +41,9 @@ public class Frame extends JFrame {
         launcher.crashfile.mkdirs();
         if (!ramFile.exists()) {
             ramFile.createNewFile();
+        }
+        if (!saverFile.exists()) {
+            saverFile.createNewFile();
         }
 
         instance = new Frame();
@@ -65,5 +72,9 @@ public class Frame extends JFrame {
 
     public static File getRamFile() {
         return ramFile;
+    }
+
+    public static Saver getSaver() {
+        return saver;
     }
 }
