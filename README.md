@@ -13,7 +13,7 @@ Java Premium
 
 Memorisation auth Microsoft
 New interface
-Ans more !
+And more !
 
 ## Discord : 
 (It's the same link)
