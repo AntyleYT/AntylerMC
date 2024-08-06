@@ -1,7 +1,7 @@
 # AntylerMC Minecraft launcher by Antyle_YT
-## Release : 1.0
-## early access Release available : 1.1
-## SNAPSHOT : SNAPSHOT DEV-1.1.0
+## Release : 1.1
+## early access Release available : ❎
+## SNAPSHOT : SNAPSHOT DEV-1.1.?
 
 # FEATURES : 
 
