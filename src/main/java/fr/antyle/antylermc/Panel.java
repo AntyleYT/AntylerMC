@@ -1,5 +1,6 @@
 package fr.antyle.antylermc;
 
+import fr.antyle.antylermc.utils.Animation;
 import fr.antyle.antylermc.utils.MicrosoftThread;
 import fr.antyle.antylermc.utils.MicrosoftThread;
 import fr.theshark34.openlauncherlib.util.ramselector.RamSelector;
@@ -22,6 +23,7 @@ public class Panel extends JPanel implements SwingerEventListener {
 
     private STexturedButton play = new STexturedButton(getBuffuredImage("Button1.png"), getBuffuredImage("button2.png"));
     private STexturedButton microsoft = new STexturedButton(getBuffuredImage("microsofticon.png"),getBuffuredImage("microsofticon.png"));
+    private STexturedButton altf4 = new STexturedButton(getBuffuredImage("altf4.png"),getBuffuredImage("altf4.png"));
     private RamSelector ramSelector = new RamSelector(Frame.getRamFile());
 
     public Panel() throws IOException {
@@ -38,11 +40,14 @@ public class Panel extends JPanel implements SwingerEventListener {
         this.add(microsoft);
 
         settings.setBounds(75,75);
-        settings.setLocation(890,1);
+        settings.setLocation(890,270);
         settings.addEventListener(this);
         this.add(settings);
 
-
+        altf4.setBounds(50,50);
+        altf4.setLocation(905,5);
+        altf4.addEventListener(this);
+        this.add(altf4);
     }
 
     @Override
@@ -74,6 +79,9 @@ public class Panel extends JPanel implements SwingerEventListener {
 
         }else if (swingerEvent.getSource() == settings) {
             ramSelector.display();
+        } else if (swingerEvent.getSource() == altf4) {
+            Animation.fadeOutFrame(Frame.getInstance(), 30, () -> System.exit(0));
+            
         }
 
     }

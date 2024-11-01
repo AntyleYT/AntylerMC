@@ -40,7 +40,7 @@ public class Animation {
         isFadingOut = true;
 
         float opacityIncrement = 1.0f / (float) duration;
-        Timer timer = new Timer(1000 / duration, null);
+        Timer timer = new Timer(50 / duration, null);
         timer.addActionListener(new ActionListener() {
             float opacity = 1.0f;
 

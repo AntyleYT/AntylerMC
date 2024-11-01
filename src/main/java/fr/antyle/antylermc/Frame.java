@@ -64,8 +64,8 @@ public class Frame extends JFrame {
         lib.Discord_Initialize(appID, handlers, true, "");
         DiscordRichPresence discordRichPresence = new DiscordRichPresence();
         discordRichPresence.startTimestamp = System.currentTimeMillis() / 1000;
-        discordRichPresence.details = "Playing AntylerMC-Dev-SNAPSHOT 1-0-0";
-        discordRichPresence.state = "AntylerMC-SNPSHOT-1-0-0";
+        discordRichPresence.details = "Playing AntylerMC";
+        discordRichPresence.state = "AntylerMC";
 
         lib.Discord_UpdatePresence(discordRichPresence);
     }
