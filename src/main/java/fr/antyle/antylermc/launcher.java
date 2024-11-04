@@ -5,6 +5,7 @@ import fr.flowarg.flowupdater.download.json.CurseFileInfo;
 import fr.flowarg.flowupdater.utils.UpdaterOptions;
 import fr.flowarg.flowupdater.versions.AbstractForgeVersion;
 import fr.flowarg.flowupdater.versions.ForgeVersionBuilder;
+import fr.flowarg.flowupdater.versions.ForgeVersionType;
 import fr.flowarg.flowupdater.versions.VanillaVersion;
 import fr.flowarg.openlauncherlib.NoFramework;
 import fr.litarvan.openauth.microsoft.MicrosoftAuthResult;
@@ -14,7 +15,7 @@ import fr.theshark34.openlauncherlib.minecraft.*;
 import fr.theshark34.openlauncherlib.util.CrashReporter;
 
 import java.io.File;
-import java.nio.file.Files;
+import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,7 @@ public class launcher {
         curseFileInfos.add(new CurseFileInfo(821790, 4594802));
         curseFileInfos.add(new CurseFileInfo(372196, 3391448));
 
-        AbstractForgeVersion version = new ForgeVersionBuilder(ForgeVersionBuilder.ForgeVersionType.NEW).withCurseMods(curseFileInfos).withForgeVersion("36.2.39").build();
+        AbstractForgeVersion version = new ForgeVersionBuilder(ForgeVersionType.NEW).withCurseMods(curseFileInfos).withForgeVersion("36.2.39").build();
 
         FlowUpdater updater = new FlowUpdater.FlowUpdaterBuilder().withVanillaVersion(vanillaVersion).withUpdaterOptions(options).withModLoaderVersion(version).build();
         updater.update(path);

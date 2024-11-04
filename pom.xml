@@ -23,7 +23,7 @@
         <dependency>
             <groupId>fr.flowarg</groupId>
             <artifactId>flowupdater</artifactId>
-            <version>1.8.2</version>
+            <version>1.9.2</version>
         </dependency>
         <dependency>
             <groupId>fr.litarvan</groupId>
@@ -53,6 +53,19 @@
             <artifactId>java-discord-rpc</artifactId>
             <version>2.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>fr.flowarg</groupId>
+            <artifactId>flowupdater</artifactId>
+            <version>1.8.2</version>
+        </dependency>
+        <dependency>
+            <groupId>fr.theshark34</groupId>
+            <artifactId>swinger</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>E:\swinger.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
     <repositories>
