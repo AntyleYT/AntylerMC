@@ -11,16 +11,18 @@
 
 # Features will be added :
 
-- Memorisation auth Microsoft
 - New interface
+New interface :
+Close button : ✔️
+Animated interface :
+Updater : ✔️ ⚠️Error
+Optimization : ✔️ Steps 1/5 
+Adding mods
 - And more !
 
 ## Discord : 
-- (It's the same link)
 
-- https://dcs.gg/satais
 - https://dsc.gg/antyler
-- https://dsc.gg/haisip
 
 
 
