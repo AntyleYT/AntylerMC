@@ -1,11 +1,11 @@
 # AntylerMC Minecraft launcher by Antyle_YT
 ## Release : 1.1
-## early access Release available : ❎
-## SNAPSHOT : SNAPSHOT DEV-1.1.?
+## early access Release available : Soon
+## SNAPSHOT : SNAPSHOT DEV-1.1.1
 
 # FEATURES : 
 
-- 1.16.5 FORGE (LightSpeed and OptiForge)
+- 1.16.5 FORGE 
 - SImple interface
 - Java Premium
 
